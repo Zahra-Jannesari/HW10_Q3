@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 import com.zarisa.hw10_q3.databinding.ActivityMainBinding
 
@@ -36,7 +34,23 @@ class MainActivity : AppCompatActivity() {
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+//        binding.navView.setNavigationItemSelectedListener {
+//            when(it.itemId){
+//                R.id.nav_exit -> finish()
+//            }
+//            true
+//        }
+        binding.navView.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_exit -> {
+                    finish()
+                    true
+                }
+            }
+            NavigationUI.onNavDestinationSelected(it, navController)
+            drawerLayout.closeDrawer(GravityCompat.START)
+            true
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         return true
