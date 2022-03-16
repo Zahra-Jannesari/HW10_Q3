@@ -33,5 +33,6 @@ class ItemDetailFragment : Fragment() {
     private fun setData() {
         binding.ItemName.text=viewModel.getItemName(numberOfSelectedItem)
         viewModel.getItemFullImage(requireContext(),binding.ItemImage,numberOfSelectedItem)
+        binding.ItemDescribe.text=viewModel.getItemDescribe(numberOfSelectedItem)
     }
 }
