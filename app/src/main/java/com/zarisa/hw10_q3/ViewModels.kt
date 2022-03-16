@@ -49,6 +49,21 @@ class ViewModelProfile:ViewModel(){
 //        DataBank.userBloodType=newBloodType
 //    }
 }
-class ViewModelItems:ViewModel(){
-
+class ViewModelHomeItems:ViewModel(){
+    fun getItemImage(context: Context, imageView: ImageView, itemNumber: Int){
+            val url = DataBank.itemImages[itemNumber-1]
+            Glide.with(context)
+                .load(url)
+                .centerCrop()
+                .transform(CircleCrop())
+//            .placeholder(R.drawable.holder)
+//            .error(R.drawable.error)
+                .into(imageView)
+    }
+    fun getItemName(itemNumber: Int):String{
+        return DataBank.itemNames[itemNumber-1]
+    }
+    fun getItemDescribe(itemNumber: Int):String{
+        return DataBank.itemDescribe[itemNumber-1].toString()
+    }
 }

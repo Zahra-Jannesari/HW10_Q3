@@ -6,6 +6,11 @@ object DataBank {
     var userNationalID:Int=0
     var userPhone:Int=0
     var userAddress:String=""
+
+
+    var itemImages= arrayListOf(R.drawable.ali_ghapo)
+    var itemNames= arrayListOf("عمارت عالی قاپو")
+    var itemDescribe= arrayListOf(R.string.Aali_Qapu)
 //    var userBloodType:BloodType=BloodType.Unknown
 }
 //enum class BloodType{
