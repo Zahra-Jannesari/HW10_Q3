@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.zarisa.hw10_q3.databinding.FragmentItemDetailBinding
 
@@ -21,17 +22,19 @@ class ItemDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        setHasOptionsMenu(true)
         binding= FragmentItemDetailBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        numberOfSelectedItem=requireArguments().getInt(numberOfItem)
+        (activity as AppCompatActivity).supportActionBar?.title = viewModel.getItemName(numberOfSelectedItem)
         setData()
     }
 
     private fun setData() {
-        numberOfSelectedItem=requireArguments().getInt(numberOfItem)
         binding.ItemName.text=viewModel.getItemName(numberOfSelectedItem)
         viewModel.getItemFullImage(requireContext(),binding.ItemImage,numberOfSelectedItem)
         binding.ItemDescribe.text =viewModel.getItemDescribe(requireActivity(),numberOfSelectedItem)
