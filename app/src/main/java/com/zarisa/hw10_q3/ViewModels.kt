@@ -27,12 +27,12 @@ class ViewModelProfile:ViewModel(){
     fun setUserAddress(newAddress:String){
         DataBank.userAddress=newAddress
     }
-    fun getUserBloodType():BloodType{
-        return DataBank.userBloodType
-    }
-    fun setUserName(newBloodType: BloodType){
-        DataBank.userBloodType=newBloodType
-    }
+//    fun getUserBloodType():BloodType{
+//        return DataBank.userBloodType
+//    }
+//    fun setUserName(newBloodType: BloodType){
+//        DataBank.userBloodType=newBloodType
+//    }
 }
 class ViewModelItems:ViewModel(){
 
