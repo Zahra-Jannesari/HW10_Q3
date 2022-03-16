@@ -1,6 +1,7 @@
 package com.zarisa.hw10_q3
 
 object DataBank {
+    var photoUrl="https://source.unsplash.com/random"
     var userName:String=""
     var userNationalID:Int=0
     var userPhone:Int=0
