@@ -1,16 +1,18 @@
 package com.zarisa.hw10_q3
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.zarisa.hw10_q3.databinding.FragmentItemDetailBinding
 
 class ItemDetailFragment : Fragment() {
     var numberOfSelectedItem=0
+    var itemTitle:String=""
+    var itemText=""
     val viewModel:ViewModelHomeItems by viewModels()
     lateinit var binding: FragmentItemDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,14 +31,35 @@ class ItemDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        numberOfSelectedItem=requireArguments().getInt(numberOfItem)
-        (activity as AppCompatActivity).supportActionBar?.title = viewModel.getItemName(numberOfSelectedItem)
         setData()
     }
 
     private fun setData() {
-        binding.ItemName.text=viewModel.getItemName(numberOfSelectedItem)
+        numberOfSelectedItem=requireArguments().getInt(numberOfItem)
+        itemTitle=viewModel.getItemName(numberOfSelectedItem)
+        itemText=viewModel.getItemDescribe(requireActivity(),numberOfSelectedItem)
+        (activity as AppCompatActivity).supportActionBar?.title = itemTitle
+        binding.ItemName.text=itemTitle
         viewModel.getItemFullImage(requireContext(),binding.ItemImage,numberOfSelectedItem)
-        binding.ItemDescribe.text =viewModel.getItemDescribe(requireActivity(),numberOfSelectedItem)
+        binding.ItemDescribe.text =itemText
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.share_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.shareItem-> shareTheDetails()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun shareTheDetails() {
+        var myIntent = Intent(Intent.ACTION_SEND)
+        myIntent.type = "text/plain"
+        var shareText = "$itemTitle:\n$itemText"
+        myIntent.putExtra(Intent.EXTRA_TEXT, shareText)
+        startActivity(Intent.createChooser(myIntent, "Share with:"))
     }
 }
