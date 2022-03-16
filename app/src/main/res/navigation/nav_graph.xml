@@ -18,11 +18,7 @@
         android:id="@+id/nav_setting"
         android:name="com.zarisa.hw10_q3.SettingFragment"
         android:label="Setting"
-        tools:layout="@layout/fragment_setting" >
-        <action
-            android:id="@+id/action_nav_setting_to_nav_home"
-            app:destination="@id/nav_home" />
-    </fragment>
+        tools:layout="@layout/fragment_setting" />
     <fragment
         android:id="@+id/nav_profile"
         android:name="com.zarisa.hw10_q3.ProfileFragment"
