@@ -72,7 +72,7 @@ class ViewModelHomeItems:ViewModel(){
     fun getItemName(itemNumber: Int):String{
         return DataBank.itemNames[itemNumber-1]
     }
-    fun getItemDescribe(itemNumber: Int):String{
-        return DataBank.itemDescribe[itemNumber-1].toString()
+    fun getItemDescribe(context: Context,itemNumber: Int): String {
+        return DataBank.getDescribe(context,itemNumber)
     }
 }

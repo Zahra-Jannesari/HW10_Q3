@@ -19,7 +19,7 @@
          <ImageView
              android:id="@+id/ItemImage"
              android:layout_width="match_parent"
-             android:layout_height="wrap_content"/>
+             android:layout_height="190dp"/>
          <TextView
              android:id="@+id/ItemName"
              android:layout_width="match_parent"
@@ -30,7 +30,9 @@
              android:id="@+id/ItemDescribe"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:layout_marginTop="16dp"/>
+             android:layout_marginTop="16dp"
+             android:textSize="15sp"
+             android:justificationMode="inter_word"/>
       </LinearLayout>
    </ScrollView>
 </LinearLayout>
