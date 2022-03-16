@@ -60,6 +60,15 @@ class ViewModelHomeItems:ViewModel(){
 //            .error(R.drawable.error)
                 .into(imageView)
     }
+    fun getItemFullImage(context: Context, imageView: ImageView, itemNumber: Int){
+        val url = DataBank.itemImages[itemNumber-1]
+        Glide.with(context)
+            .load(url)
+            .centerCrop()
+//            .placeholder(R.drawable.holder)
+//            .error(R.drawable.error)
+            .into(imageView)
+    }
     fun getItemName(itemNumber: Int):String{
         return DataBank.itemNames[itemNumber-1]
     }
