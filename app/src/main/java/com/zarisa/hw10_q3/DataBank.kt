@@ -1,7 +1,7 @@
 package com.zarisa.hw10_q3
 
 object DataBank {
-    var photoUrl=R.drawable.profile_photo
+    var profilePhotoUrl=R.drawable.profile_photo
     var userName:String=""
     var userNationalID:Int=0
     var userPhone:Int=0

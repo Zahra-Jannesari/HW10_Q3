@@ -5,7 +5,7 @@ import android.widget.ImageView
 import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
-import com.zarisa.hw10_q3.DataBank.photoUrl
+import com.zarisa.hw10_q3.DataBank.profilePhotoUrl
 
 class ViewModelProfile:ViewModel(){
     fun getUserName():String{
@@ -33,13 +33,13 @@ class ViewModelProfile:ViewModel(){
         DataBank.userAddress=newAddress
     }
     fun getPhoto(context: Context, imageView: ImageView){
-        val url = if (photoUrl != null) photoUrl else null //1
-        Glide.with(context)  //2
-            .load(photoUrl) //3
-            .centerCrop() //4
+        val url = if (profilePhotoUrl != null) profilePhotoUrl else null //1
+        Glide.with(context)
+            .load(url)
+            .centerCrop()
             .transform(CircleCrop())
-//            .placeholder(R.drawable.holder) //5
-//            .error(R.drawable.error) //6
+//            .placeholder(R.drawable.holder)
+//            .error(R.drawable.error)
             .into(imageView)
     }
 //    fun getUserBloodType():BloodType{
