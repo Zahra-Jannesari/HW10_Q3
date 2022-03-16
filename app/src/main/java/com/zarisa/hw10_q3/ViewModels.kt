@@ -33,7 +33,7 @@ class ViewModelProfile:ViewModel(){
         DataBank.userAddress=newAddress
     }
     fun getPhoto(context: Context, imageView: ImageView){
-        val url = if (profilePhotoUrl != null) profilePhotoUrl else null //1
+        val url = if (profilePhotoUrl != null) profilePhotoUrl else null
         Glide.with(context)
             .load(url)
             .centerCrop()

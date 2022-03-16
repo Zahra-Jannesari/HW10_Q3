@@ -42,4 +42,5 @@ class HomeFragment : Fragment() {
         binding.item6.textView.text=viewModel.getItemName(6)
         viewModel.getItemImage(requireContext(),binding.item6.imageView,6)
     }
+
 }
