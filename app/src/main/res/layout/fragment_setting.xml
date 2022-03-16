@@ -39,9 +39,10 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <Spinner
+                    <RadioGroup
+                        android:orientation="horizontal"
                         android:id="@+id/spinner_item"
-                        android:layout_width="100dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="8dp"
                         android:gravity="center"
@@ -49,11 +50,44 @@
                         android:minHeight="48dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.966"
+                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView_chose"
                         app:layout_constraintVertical_bias="1.0"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                        tools:ignore="SpeakableTextPresentCheck">
+
+                        <RadioButton
+                            android:id="@+id/radio1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"/>
+                        <RadioButton
+                            android:id="@+id/radio2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"/>
+                        <RadioButton
+                            android:id="@+id/radio3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3"/>
+                        <RadioButton
+                            android:id="@+id/radio4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4"/>
+                        <RadioButton
+                            android:id="@+id/radio5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5"/>
+                        <RadioButton
+                            android:id="@+id/radio6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6"/>
+                    </RadioGroup>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

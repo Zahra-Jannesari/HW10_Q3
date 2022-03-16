@@ -1,23 +1,22 @@
 package com.zarisa.hw10_q3
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.zarisa.hw10_q3.databinding.FragmentHomeBinding
 
 const val numberOfItem = "numberOfItem"
-
+var numberOfVisible=4
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
-    val viewModel: ViewModelHomeItems by viewModels()
+    private val viewModel: ViewModelHomeItems by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
@@ -25,16 +24,31 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(false)
+
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setItems()
+        setVisibilityForItems()
         onClicks()
     }
 
+    private fun setVisibilityForItems() {
+        for(i in 1..6){
+            val viewId = requireContext().resources.getIdentifier("item$i", "id", context?.packageName)
+            var itemView=view?.findViewById<View>(viewId)
+            itemView?.visibility=View.VISIBLE
+        }
+        for(i in numberOfVisible+1..6){
+            val viewId = requireContext().resources.getIdentifier("item$i", "id", context?.packageName)
+            var itemView=view?.findViewById<View>(viewId)
+            itemView?.visibility=View.GONE
+        }
+    }
     private fun onClicks() {
         binding.item1.imageView.setOnClickListener { goToDetailPage(1) }
         binding.item2.imageView.setOnClickListener { goToDetailPage(2) }
@@ -45,11 +59,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun goToDetailPage(itemNumber: Int) {
-        var bundle = bundleOf(numberOfItem to itemNumber)
+        val bundle = bundleOf(numberOfItem to itemNumber)
         findNavController().navigate(R.id.action_nav_home_to_itemDetailFragment, bundle)
     }
-
     private fun setItems() {
+//        var itemArray= arrayListOf(binding.item1,binding.item2,binding.item3,binding.item4,binding.item5,binding.item6)
+//        for (i in 1..numberOfVisible){
+//            itemArray[i-1].textView.text = viewModel.getItemName(i)
+//            viewModel.getItemImage(requireContext(), itemArray[i-1].imageView, i)
+//        }
         binding.item1.textView.text = viewModel.getItemName(1)
         viewModel.getItemImage(requireContext(), binding.item1.imageView, 1)
         binding.item2.textView.text = viewModel.getItemName(2)

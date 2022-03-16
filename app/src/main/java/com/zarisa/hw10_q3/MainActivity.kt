@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 import com.zarisa.hw10_q3.databinding.ActivityMainBinding
+import com.zarisa.hw10_q3.databinding.FragmentHomeBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -34,12 +35,6 @@ class MainActivity : AppCompatActivity() {
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-//        binding.navView.setNavigationItemSelectedListener {
-//            when(it.itemId){
-//                R.id.nav_exit -> finish()
-//            }
-//            true
-//        }
         binding.navView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_exit -> {
