@@ -1,11 +1,14 @@
 package com.zarisa.hw10_q3
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.zarisa.hw10_q3.databinding.FragmentSettingBinding
 
@@ -37,13 +40,32 @@ class SettingFragment : Fragment() {
             binding.spinnerItem.adapter = adapter
         }
         setDataInEditTexts()
+        binding.saveChangeButton.setOnClickListener { saveChanges()}
+    }
+
+    private fun saveChanges() {
+//        if(binding.switchTheme.isChecked)
+        viewModelProfile.setUserName(binding.name.text.toString())
+        viewModelProfile.setUserId(binding.id.text.toString())
+        viewModelProfile.setUserPhone(binding.phone.text.toString())
+        viewModelProfile.setUserAddress(binding.address.text.toString())
+        binding.spinnerItem.onItemSelectedListener= object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                viewModelItem.numberOfItems=p2+1
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                viewModelItem.numberOfItems=4
+            }
+        }
+        Toast.makeText(requireContext(),"Changes saved.",Toast.LENGTH_SHORT).show()
     }
 
     private fun setDataInEditTexts() {
         binding.name.setText(viewModelProfile.getUserName())
-        binding.id.setText(viewModelProfile.getUserId())
-        binding.phone.setText(viewModelProfile.getUserPhone())
+        binding.id.setText(viewModelProfile.getUserId().toString())
+        binding.phone.setText(viewModelProfile.getUserPhone().toString())
         binding.address.setText(viewModelProfile.getUserAddress())
     }
+
 
 }

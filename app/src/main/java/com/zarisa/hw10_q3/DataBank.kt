@@ -7,8 +7,8 @@ import android.content.res.Resources
 object DataBank {
     var profilePhotoUrl = R.drawable.profile_photo
     var userName: String = ""
-    var userNationalID: Int = 0
-    var userPhone: Int = 0
+    var userNationalID: String = ""
+    var userPhone: String = ""
     var userAddress: String = ""
     var itemImages = arrayListOf(
         R.drawable.ali_ghapo,
@@ -28,11 +28,6 @@ object DataBank {
         )
     var itemDescribe = arrayListOf(
 //        Resources.getSystem().getString(R.string.Aali_Qapu),
-//        Resources.getSystem().getString(R.string.Lotfollah_Mosque),
-//        Resources.getSystem().getString(R.string.Chehel_Sotoon),
-//        Resources.getSystem().getString(R.string.Sadeq_School),
-//        Resources.getSystem().getString(R.string.Manar_Jonban),
-//        Resources.getSystem().getString(R.string.Naqsh_Jahan)
 //        ResourcesHelper.resources?.getString(R.string.app_name),
         R.string.Aali_Qapu,
         R.string.Lotfollah_Mosque,

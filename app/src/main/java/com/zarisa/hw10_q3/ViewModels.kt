@@ -14,16 +14,16 @@ class ViewModelProfile:ViewModel(){
     fun setUserName(newName:String){
         DataBank.userName=newName
     }
-    fun getUserId():Int{
+    fun getUserId():String{
         return DataBank.userNationalID
     }
-    fun setUserId(newId:Int){
+    fun setUserId(newId:String){
         DataBank.userNationalID=newId
     }
-    fun getUserPhone():Int{
+    fun getUserPhone():String{
         return DataBank.userPhone
     }
-    fun setUserPhone(newPhone:Int){
+    fun setUserPhone(newPhone:String){
         DataBank.userPhone=newPhone
     }
     fun getUserAddress():String{
@@ -50,6 +50,7 @@ class ViewModelProfile:ViewModel(){
 //    }
 }
 class ViewModelHomeItems:ViewModel(){
+    var numberOfItems:Int=4
     fun getItemImage(context: Context, imageView: ImageView, itemNumber: Int){
             val url = DataBank.itemImages[itemNumber-1]
             Glide.with(context)
