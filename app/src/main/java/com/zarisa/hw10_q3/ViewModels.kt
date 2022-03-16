@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.zarisa.hw10_q3.DataBank.photoUrl
 
 class ViewModelProfile:ViewModel(){
@@ -22,7 +23,7 @@ class ViewModelProfile:ViewModel(){
     fun getUserPhone():Int{
         return DataBank.userPhone
     }
-    fun setUserName(newPhone:Int){
+    fun setUserPhone(newPhone:Int){
         DataBank.userPhone=newPhone
     }
     fun getUserAddress():String{
@@ -32,11 +33,11 @@ class ViewModelProfile:ViewModel(){
         DataBank.userAddress=newAddress
     }
     fun getPhoto(context: Context, imageView: ImageView){
-
-        val url = if (DataBank.photoUrl != null) "$DataBank.photoUrl?w=360" else null //1
+        val url = if (photoUrl != null) photoUrl else null //1
         Glide.with(context)  //2
             .load(photoUrl) //3
             .centerCrop() //4
+            .transform(CircleCrop())
 //            .placeholder(R.drawable.holder) //5
 //            .error(R.drawable.error) //6
             .into(imageView)
