@@ -63,23 +63,23 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.action_nav_home_to_itemDetailFragment, bundle)
     }
     private fun setItems() {
-//        var itemArray= arrayListOf(binding.item1,binding.item2,binding.item3,binding.item4,binding.item5,binding.item6)
-//        for (i in 1..numberOfVisible){
-//            itemArray[i-1].textView.text = viewModel.getItemName(i)
-//            viewModel.getItemImage(requireContext(), itemArray[i-1].imageView, i)
-//        }
-        binding.item1.textView.text = viewModel.getItemName(1)
-        viewModel.getItemImage(requireContext(), binding.item1.imageView, 1)
-        binding.item2.textView.text = viewModel.getItemName(2)
-        viewModel.getItemImage(requireContext(), binding.item2.imageView, 2)
-        binding.item3.textView.text = viewModel.getItemName(3)
-        viewModel.getItemImage(requireContext(), binding.item3.imageView, 3)
-        binding.item4.textView.text = viewModel.getItemName(4)
-        viewModel.getItemImage(requireContext(), binding.item4.imageView, 4)
-        binding.item5.textView.text = viewModel.getItemName(5)
-        viewModel.getItemImage(requireContext(), binding.item5.imageView, 5)
-        binding.item6.textView.text = viewModel.getItemName(6)
-        viewModel.getItemImage(requireContext(), binding.item6.imageView, 6)
+        var itemArray= arrayListOf(binding.item1,binding.item2,binding.item3,binding.item4,binding.item5,binding.item6)
+        for (i in 1..itemArray.size){
+            itemArray[i-1].textView.text = viewModel.getItemName(i)
+            viewModel.getItemImage(requireContext(), itemArray[i-1].imageView, i)
+        }
+//        binding.item1.textView.text = viewModel.getItemName(1)
+//        viewModel.getItemImage(requireContext(), binding.item1.imageView, 1)
+//        binding.item2.textView.text = viewModel.getItemName(2)
+//        viewModel.getItemImage(requireContext(), binding.item2.imageView, 2)
+//        binding.item3.textView.text = viewModel.getItemName(3)
+//        viewModel.getItemImage(requireContext(), binding.item3.imageView, 3)
+//        binding.item4.textView.text = viewModel.getItemName(4)
+//        viewModel.getItemImage(requireContext(), binding.item4.imageView, 4)
+//        binding.item5.textView.text = viewModel.getItemName(5)
+//        viewModel.getItemImage(requireContext(), binding.item5.imageView, 5)
+//        binding.item6.textView.text = viewModel.getItemName(6)
+//        viewModel.getItemImage(requireContext(), binding.item6.imageView, 6)
     }
 
 }

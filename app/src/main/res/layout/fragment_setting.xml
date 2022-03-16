@@ -46,8 +46,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="8dp"
                         android:gravity="center"
-                        android:textDirection="rtl"
-                        android:minHeight="48dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -174,6 +172,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="8dp"
                             android:hint="نام"
+                            android:minHeight="48dp"
                             android:paddingHorizontal="8dp" />
 
                         <EditText
@@ -182,20 +181,25 @@
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="8dp"
                             android:hint="کدملی"
+                            android:minHeight="48dp"
                             android:paddingHorizontal="8dp" />
+
                         <EditText
                             android:id="@+id/phone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="8dp"
                             android:hint="تلفن"
+                            android:minHeight="48dp"
                             android:paddingHorizontal="8dp" />
+
                         <EditText
                             android:id="@+id/address"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="8dp"
                             android:hint="آدرس"
+                            android:minHeight="48dp"
                             android:paddingHorizontal="8dp" />
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
