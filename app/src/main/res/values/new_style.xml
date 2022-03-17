@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <style name="new_theme" parent="Theme.MaterialComponents.Bridge">
+            <!-- Primary brand color. -->
+            <item name="colorPrimary">#335C22</item>
+            <item name="colorPrimaryVariant">#C38613</item>
+            <item name="colorOnPrimary">@color/teal_700</item>
+            <!-- Secondary brand color. -->
+            <item name="colorSecondary">#240239</item>
+            <item name="colorSecondaryVariant">#982C2C</item>
+            <item name="colorOnSecondary">@color/black</item>
+        </style>
+</resources>

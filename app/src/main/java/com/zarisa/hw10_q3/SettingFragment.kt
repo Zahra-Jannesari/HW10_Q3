@@ -2,10 +2,8 @@ package com.zarisa.hw10_q3
 
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -26,7 +24,7 @@ class SettingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View{
-        setHasOptionsMenu(false)
+        setHasOptionsMenu(true)
         binding= FragmentSettingBinding.inflate(layoutInflater,container,false)
         return binding.root
     }
@@ -45,8 +43,6 @@ class SettingFragment : Fragment() {
     }
 
     private fun saveChanges() {
-//        if(binding.switchTheme.isChecked)
-//            activity
         viewModelProfile.setUserName(binding.name.text.toString())
         viewModelProfile.setUserId(binding.id.text.toString())
         viewModelProfile.setUserPhone(binding.phone.text.toString())
@@ -82,6 +78,10 @@ class SettingFragment : Fragment() {
         binding.phone.setText(viewModelProfile.getUserPhone().toString())
         binding.address.setText(viewModelProfile.getUserAddress())
     }
-
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.share_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+        val changeItem = menu.findItem(R.id.changeTheme)
+        changeItem.isVisible = true
+    }
 }

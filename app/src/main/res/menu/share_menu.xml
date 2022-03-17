@@ -5,5 +5,9 @@
          android:id="@+id/shareItem"
          android:icon="@drawable/ic_baseline_share_24"
          android:title=""
+         android:visible="false"
          app:showAsAction="ifRoom" />
+     <item android:id="@+id/changeTheme"
+         android:visible="false"
+         android:title="change theme" />
 </menu>

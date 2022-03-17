@@ -3,11 +3,11 @@ package com.zarisa.hw10_q3
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.zarisa.hw10_q3.databinding.FragmentItemDetailBinding
+
 
 class ItemDetailFragment : Fragment() {
     var numberOfSelectedItem=0
@@ -46,8 +46,9 @@ class ItemDetailFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.share_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
+        val shareItem = menu.findItem(R.id.shareItem)
+        shareItem.isVisible = true
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.shareItem-> shareTheDetails()
