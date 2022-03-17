@@ -46,6 +46,7 @@ class SettingFragment : Fragment() {
 
     private fun saveChanges() {
 //        if(binding.switchTheme.isChecked)
+//            activity
         viewModelProfile.setUserName(binding.name.text.toString())
         viewModelProfile.setUserId(binding.id.text.toString())
         viewModelProfile.setUserPhone(binding.phone.text.toString())
