@@ -18,7 +18,8 @@
                 android:id="@+id/imageView_bankLogo"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                tools:src="@tools:sample/avatars" />
+                tools:src="@tools:sample/avatars"
+                android:layout_gravity="center"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

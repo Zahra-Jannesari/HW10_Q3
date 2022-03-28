@@ -31,11 +31,18 @@ class CreditFragment : Fragment() {
         creditSharePref = this.activity?.getSharedPreferences("Credit Information", Context.MODE_PRIVATE)
         showInfoInView()
     }
-
     private fun showInfoInView() {
         binding.textViewUserAccount.text=creditSharePref?.getString(account,"")
         binding.textViewUserCard.text=creditSharePref?.getString(card,"")
         binding.textViewUserSheba.text=creditSharePref?.getString(sheba,"")
+
+        var bankImage=when(creditSharePref?.getString(account,"")){
+            "sepah"->R.drawable.sepah
+            "meli"->R.drawable.meli
+            "keshavarzi"->R.drawable.keshavarzi
+            else->R.drawable.bank
+        }
+        binding.imageViewBankLogo.setImageResource(bankImage)
     }
 
 }
