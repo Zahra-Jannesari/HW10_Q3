@@ -1,9 +1,7 @@
 package com.zarisa.hw10_q3
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -81,5 +79,16 @@ class HomeFragment : Fragment() {
 //        binding.item6.textView.text = viewModel.getItemName(6)
 //        viewModel.getItemImage(requireContext(), binding.item6.imageView, 6)
     }
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.feature_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+        val accessCreditPage = menu.findItem(R.id.accessCreditPage)
+        accessCreditPage.isVisible = true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.accessCreditPage-> findNavController().navigate(R.id.action_nav_home_to_creditFragment)
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

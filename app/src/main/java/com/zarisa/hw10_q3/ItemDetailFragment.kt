@@ -44,7 +44,7 @@ class ItemDetailFragment : Fragment() {
         binding.ItemDescribe.text =itemText
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.share_menu,menu)
+        inflater.inflate(R.menu.feature_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
         val shareItem = menu.findItem(R.id.shareItem)
         shareItem.isVisible = true

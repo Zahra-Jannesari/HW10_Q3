@@ -7,16 +7,14 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 import com.zarisa.hw10_q3.databinding.ActivityMainBinding
-import com.zarisa.hw10_q3.databinding.FragmentHomeBinding
+
 var appTheme=R.style.Theme_HW10_Q3
 var appLight=true
 class MainActivity : AppCompatActivity() {
@@ -55,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.share_menu, menu)
+        inflater.inflate(R.menu.feature_menu, menu)
         return true
     }
     override fun onSupportNavigateUp(): Boolean {

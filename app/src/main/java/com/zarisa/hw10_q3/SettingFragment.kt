@@ -4,11 +4,8 @@ package com.zarisa.hw10_q3
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.zarisa.hw10_q3.databinding.FragmentSettingBinding
 
 class SettingFragment : Fragment() {
@@ -79,7 +76,7 @@ class SettingFragment : Fragment() {
         binding.address.setText(viewModelProfile.getUserAddress())
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.share_menu,menu)
+        inflater.inflate(R.menu.feature_menu,menu)
         super.onCreateOptionsMenu(menu, inflater)
         val changeItem = menu.findItem(R.id.changeTheme)
         changeItem.isVisible = true
