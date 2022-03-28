@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,14 +10,16 @@
    <ImageView
        android:id="@+id/ItemImage"
        android:layout_width="match_parent"
-       android:layout_height="190dp"/>
+       android:layout_height="190dp"
+       tools:src="@tools:sample/backgrounds/scenic"/>
    <TextView
        android:id="@+id/ItemName"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:textSize="30sp"
        android:layout_marginTop="8dp"
-       android:layout_marginHorizontal="8dp"/>
+       android:layout_marginHorizontal="8dp"
+       tools:text="building name"/>
    <ScrollView
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -32,7 +35,10 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:textSize="15sp"
-             android:justificationMode="inter_word"/>
+             android:justificationMode="inter_word"
+             tools:text="building description"
+             />
       </LinearLayout>
    </ScrollView>
+
 </LinearLayout>
