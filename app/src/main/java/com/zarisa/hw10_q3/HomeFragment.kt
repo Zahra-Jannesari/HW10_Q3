@@ -21,7 +21,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setHasOptionsMenu(false)
+        setHasOptionsMenu(true)
 
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
