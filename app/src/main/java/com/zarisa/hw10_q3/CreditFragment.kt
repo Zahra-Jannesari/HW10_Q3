@@ -12,6 +12,7 @@ import com.zarisa.hw10_q3.databinding.FragmentCreditBinding
 const val account="account"
 const val card="card"
 const val sheba="sheba"
+const val bank="bankName"
 class CreditFragment : Fragment() {
     private lateinit var binding: FragmentCreditBinding
     private var creditSharePref: SharedPreferences? = null
@@ -36,4 +37,5 @@ class CreditFragment : Fragment() {
         binding.textViewUserCard.text=creditSharePref?.getString(card,"")
         binding.textViewUserSheba.text=creditSharePref?.getString(sheba,"")
     }
+
 }
