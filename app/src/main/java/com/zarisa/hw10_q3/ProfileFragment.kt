@@ -10,7 +10,7 @@ import com.zarisa.hw10_q3.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
     lateinit var binding: FragmentProfileBinding
-    val viowModel:ViewModelProfile by viewModels()
+    val viowModel: ViewModelProfile by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
