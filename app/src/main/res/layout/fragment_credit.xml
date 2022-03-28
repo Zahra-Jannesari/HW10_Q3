@@ -15,7 +15,7 @@
             android:orientation="vertical"
             android:padding="16dp">
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageView_bankLogo"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 tools:src="@tools:sample/avatars" />
