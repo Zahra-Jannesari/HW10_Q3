@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.zarisa.hw10_q3.databinding.FragmentCreditBinding
 
 class CreditFragment : Fragment() {
+    private lateinit var binding: FragmentCreditBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -14,7 +16,7 @@ class CreditFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credit, container, false)
+        binding= FragmentCreditBinding.inflate(layoutInflater,container, false)
+        return binding.root
     }
 }
