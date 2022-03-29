@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.zarisa.hw10_q3.databinding.FragmentCreditBinding
 
 const val account="account"
@@ -28,6 +29,7 @@ class CreditFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = "اطلاعات بانکی"
         creditSharePref = this.activity?.getSharedPreferences("Credit Information", Context.MODE_PRIVATE)
         showInfoInView()
     }
