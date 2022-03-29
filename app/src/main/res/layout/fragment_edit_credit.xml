@@ -45,21 +45,29 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textView_bankType">
-
                         <RadioButton
+                            android:id="@+id/rbtn_none"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="هیچکدام" />
+                        <RadioButton
+                            android:id="@+id/rbtn_meli"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="بانک ملی" />
 
                         <RadioButton
+                            android:id="@+id/rbtn_sepah"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="بانک سپه" />
 
                         <RadioButton
+                            android:id="@+id/rbtn_keshavarzi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="بانک کشاورزی" />
+
                     </RadioGroup>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
