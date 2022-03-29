@@ -38,7 +38,7 @@ class CreditFragment : Fragment() {
         binding.textViewUserCard.text=creditSharePref?.getString(card,"")
         binding.textViewUserSheba.text=creditSharePref?.getString(sheba,"")
 
-        var bankImage=when(creditSharePref?.getString(account,"")){
+        var bankImage=when(creditSharePref?.getString(bank,"")){
             "sepah"->R.drawable.sepah
             "meli"->R.drawable.meli
             "keshavarzi"->R.drawable.keshavarzi
