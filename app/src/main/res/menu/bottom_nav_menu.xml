@@ -2,7 +2,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="تغییر اطلاعات حساب"
+    <item android:title="تغییر اطلاعات بانکی"
         android:icon="@drawable/ic_baseline_monetization_on_24"/>
     <item android:title="تغییر اطلاعات شخصی"
         android:icon="@drawable/ic_baseline_person_24"/>

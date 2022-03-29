@@ -1,99 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".SettingFragment">
-
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".EditCreditFragment"
+    android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
+        android:layout_height="match_parent"
+        android:padding="16dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
+            android:orientation="vertical">
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/purple_200"
-                app:cardCornerRadius="20dp">
-
+                app:cardCornerRadius="20dp"
+                >
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/textView_chose"
+                        android:id="@+id/textView_bankType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="تعداد آیتم های قابل مشاهده:"
+                        android:gravity="start"
+                        android:text="بانک:"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.95"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <RadioGroup
-                        android:orientation="horizontal"
-                        android:id="@+id/spinner_item"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="8dp"
+                        android:orientation="horizontal"
                         android:gravity="center"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView_chose"
-                        app:layout_constraintVertical_bias="1.0"
-                        tools:ignore="SpeakableTextPresentCheck">
+                        app:layout_constraintTop_toBottomOf="@id/textView_bankType">
 
                         <RadioButton
-                            android:id="@+id/radio1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1"/>
+                            android:text="بانک ملی" />
+
                         <RadioButton
-                            android:id="@+id/radio2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="2"/>
+                            android:text="بانک سپه" />
+
                         <RadioButton
-                            android:id="@+id/radio3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="3"/>
-                        <RadioButton
-                            android:id="@+id/radio4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="4"/>
-                        <RadioButton
-                            android:id="@+id/radio5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="5"/>
-                        <RadioButton
-                            android:id="@+id/radio6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="6"/>
+                            android:text="بانک کشاورزی" />
                     </RadioGroup>
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
             </androidx.cardview.widget.CardView>
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,11 +76,11 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/textView_changeProfile"
+                        android:id="@+id/textView_changeCredit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="تغییر اطلاعات شخصی:"
+                        android:text="تغییر اطلاعات بانکی:"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.95"
                         app:layout_constraintStart_toStartOf="parent"
@@ -123,21 +93,22 @@
                         android:layout_marginVertical="8dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/textView_changeProfile"
-                        app:layout_constraintStart_toStartOf="@+id/textView_changeProfile"
-                        app:layout_constraintTop_toBottomOf="@+id/textView_changeProfile">
+                        app:layout_constraintEnd_toEndOf="@+id/textView_changeCredit"
+                        app:layout_constraintStart_toStartOf="@+id/textView_changeCredit"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_changeCredit">
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
                             <EditText
-                                android:id="@+id/name"
+                                android:id="@+id/account"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="8dp"
                                 android:background="@color/purple_200"
-                                android:hint="نام"
+                                android:hint="شماره حساب"
                                 android:maxLines="1"
+                                android:inputType="number"
                                 android:minHeight="48dp"
                                 android:paddingHorizontal="8dp"
                                 tools:ignore="SpeakableTextPresentCheck" />
@@ -148,13 +119,14 @@
                             android:layout_height="wrap_content">
 
                             <EditText
-                                android:id="@+id/id"
+                                android:id="@+id/card"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="8dp"
                                 android:background="@color/purple_200"
-                                android:hint="کدملی"
+                                android:hint="شماره کارت"
                                 android:maxLines="1"
+                                android:inputType="number"
                                 android:minHeight="48dp"
                                 android:paddingHorizontal="8dp"
                                 tools:ignore="SpeakableTextPresentCheck" />
@@ -166,30 +138,14 @@
                             android:layout_height="wrap_content">
 
                             <EditText
-                                android:id="@+id/phone"
+                                android:id="@+id/sheba"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="8dp"
                                 android:background="@color/purple_200"
-                                android:hint="تلفن"
+                                android:hint="شماره شبا"
                                 android:maxLines="1"
-                                android:minHeight="48dp"
-                                android:paddingHorizontal="8dp"
-                                tools:ignore="SpeakableTextPresentCheck" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/address"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginVertical="8dp"
-                                android:background="@color/purple_200"
-                                android:hint="آدرس"
-                                android:maxLines="1"
+                                android:inputType="number"
                                 android:minHeight="48dp"
                                 android:paddingHorizontal="8dp"
                                 tools:ignore="SpeakableTextPresentCheck" />
@@ -205,12 +161,9 @@
                 android:text="ذخیره تغییرات"
                 android:id="@+id/saveChangeButton"
                 app:cornerRadius="50dp" />
-
         </LinearLayout>
+
     </ScrollView>
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu"
-        />
+
+
 </LinearLayout>
