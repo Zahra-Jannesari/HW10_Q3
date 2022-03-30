@@ -11,13 +11,6 @@ import com.zarisa.hw10_q3.databinding.FragmentSettingBinding
 
 class SettingFragment : Fragment() {
     private lateinit var binding:FragmentSettingBinding
-    val viewModelProfile:ViewModelProfile by viewModels()
-    val viewModelItem:ViewModelHomeItems by viewModels()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,12 +29,11 @@ class SettingFragment : Fragment() {
 //            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 //            binding.spinnerItem.adapter = adapter
 //        }
-        setDataInEditTexts()
         onClicks()
     }
 
     private fun onClicks() {
-        binding.saveChangeButton.setOnClickListener { saveChanges()}
+        saveChanges()
         binding.bottomMenu.setOnNavigationItemSelectedListener  { item ->
             when(item.itemId) {
                R.id.editCredit->{
@@ -54,10 +46,6 @@ class SettingFragment : Fragment() {
     }
 
     private fun saveChanges() {
-        viewModelProfile.setUserName(binding.name.text.toString())
-        viewModelProfile.setUserId(binding.id.text.toString())
-        viewModelProfile.setUserPhone(binding.phone.text.toString())
-        viewModelProfile.setUserAddress(binding.address.text.toString())
         if (binding.radio1.isChecked)
             numberOfVisible=1
         if (binding.radio2.isChecked)
@@ -81,13 +69,6 @@ class SettingFragment : Fragment() {
         Toast.makeText(requireContext(),"Changes saved.",Toast.LENGTH_SHORT).show()
 //        HomeFragment.newInstance()
 //        findNavController().navigate(R.id.action_nav_setting_to_nav_home)
-    }
-
-    private fun setDataInEditTexts() {
-        binding.name.setText(viewModelProfile.getUserName())
-        binding.id.setText(viewModelProfile.getUserId().toString())
-        binding.phone.setText(viewModelProfile.getUserPhone().toString())
-        binding.address.setText(viewModelProfile.getUserAddress())
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.feature_menu,menu)
