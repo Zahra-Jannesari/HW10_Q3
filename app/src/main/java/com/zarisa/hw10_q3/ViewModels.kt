@@ -8,6 +8,12 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.zarisa.hw10_q3.DataBank.profilePhotoUrl
 
 class ViewModelProfile:ViewModel(){
+    fun visibilityInfoInHome():Boolean{
+        return DataBank.showProfileInfoInHome
+    }
+    fun visibilityInfoInHome(wantToBeVisible:Boolean){
+        DataBank.showProfileInfoInHome=wantToBeVisible
+    }
     fun getUserName():String{
         return DataBank.userName
     }
