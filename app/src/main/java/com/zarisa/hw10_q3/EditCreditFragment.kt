@@ -29,7 +29,16 @@ class EditCreditFragment : Fragment() {
     }
 
     private fun putDataInEditTexts() {
-        TODO("Not yet implemented")
+        binding.account.setText(creditSharePref?.getString(account,""))
+        binding.card.setText(creditSharePref?.getString(card,""))
+        binding.sheba.setText(creditSharePref?.getString(sheba,""))
+        var bankName=creditSharePref?.getString(bank,"")
+        when(bankName){
+            "meli"->binding.rbtnMeli.isChecked=true
+            "sepah"->binding.rbtnSepah.isChecked=true
+            "keshavarzi"->binding.rbtnKeshavarzi.isChecked=true
+            else->binding.rbtnNone.isChecked=true
+        }
     }
 
     private fun saveBtnClick() {
