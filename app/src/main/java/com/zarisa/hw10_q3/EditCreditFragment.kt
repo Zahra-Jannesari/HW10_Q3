@@ -49,7 +49,7 @@ class EditCreditFragment : Fragment() {
             R.id.rbtn_keshavarzi->"keshavarzi"
             else->""
         }
-        editor?.putString(bank,"")
+        editor?.putString(bank,bankName)
 
         editor?.putString(account,binding.account.text.toString())
         editor?.putString(card,binding.card.text.toString())
