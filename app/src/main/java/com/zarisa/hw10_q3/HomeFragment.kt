@@ -13,6 +13,7 @@ var numberOfVisible=4
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private val viewModel: ViewModelHomeItems by viewModels()
+    private val viewModelProfile:ViewModelProfile by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -33,6 +34,18 @@ class HomeFragment : Fragment() {
         setItems()
         setVisibilityForItems()
         onClicks()
+        setInfo()
+    }
+
+    private fun setInfo() {
+        binding.textViewGreeting.text="سلام ${viewModelProfile.getUserName()}"
+        if (viewModelProfile.visibilityInfoInHome()) {
+            binding.textViewInfo.text =
+                "مشخصات ذخیره شده شما در اپلیکیشن گردشگری:\nکدملی:${viewModelProfile.getUserId()}\n" +
+                        "تلفن:${viewModelProfile.getUserPhone()}\n" +
+                        "آدرس:${viewModelProfile.getUserAddress()}"
+        } else
+            binding.textViewInfo.text="مشخصات شما در صفحه پروفایل قابل مشاهده است."
     }
 
     private fun setVisibilityForItems() {
