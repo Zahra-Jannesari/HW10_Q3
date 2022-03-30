@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.zarisa.hw10_q3.databinding.FragmentEditProfileBinding
@@ -12,8 +13,6 @@ import com.zarisa.hw10_q3.databinding.FragmentEditProfileBinding
 class EditProfileFragment : Fragment() {
     lateinit var binding: FragmentEditProfileBinding
     val viewModelProfile:ViewModelProfile by viewModels()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)}
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,10 +34,11 @@ class EditProfileFragment : Fragment() {
         binding.phone.setText(viewModelProfile.getUserPhone().toString())
         binding.address.setText(viewModelProfile.getUserAddress())
     }
-    fun saveChanges(){
+    private fun saveChanges(){
         viewModelProfile.setUserName(binding.name.text.toString())
         viewModelProfile.setUserId(binding.id.text.toString())
         viewModelProfile.setUserPhone(binding.phone.text.toString())
         viewModelProfile.setUserAddress(binding.address.text.toString())
+        Toast.makeText(requireContext(),"Changes saved.", Toast.LENGTH_SHORT).show()
     }
 }

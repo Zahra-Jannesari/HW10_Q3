@@ -66,7 +66,6 @@ class SettingFragment : Fragment() {
 //                viewModelItem.numberOfItems=4
 //            }
 //        }
-        Toast.makeText(requireContext(),"Changes saved.",Toast.LENGTH_SHORT).show()
 //        HomeFragment.newInstance()
 //        findNavController().navigate(R.id.action_nav_setting_to_nav_home)
     }
