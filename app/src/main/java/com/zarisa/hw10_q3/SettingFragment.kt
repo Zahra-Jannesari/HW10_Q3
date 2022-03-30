@@ -40,6 +40,10 @@ class SettingFragment : Fragment() {
                    findNavController().navigate(R.id.action_nav_setting_to_editCreditFragment)
                    true
                }
+                R.id.editProfile->{
+                    findNavController().navigate(R.id.action_nav_setting_to_editProfileFragment)
+                    true
+                }
                 else-> true
             }
         }
