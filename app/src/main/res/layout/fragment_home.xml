@@ -1,44 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment"
     android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondaryVariant"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="8dp"
+                        android:textSize="15dp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
             <include
                 android:id="@+id/item1"
                 layout="@layout/item_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/item2"
                 layout="@layout/item_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/item3"
                 layout="@layout/item_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/item4"
                 layout="@layout/item_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/item5"
                 layout="@layout/item_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
             <include
                 android:id="@+id/item6"
                 layout="@layout/item_form"
@@ -46,4 +79,17 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_dailyHint"
+        android:layout_width="wrap_content"
+        android:backgroundTint="?attr/colorSecondaryVariant"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_tag_faces_24"
+        tools:ignore="SpeakableTextPresentCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>
