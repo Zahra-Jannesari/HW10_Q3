@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_nav_setting_to_editCreditFragment"
             app:destination="@id/editCreditFragment" />
+        <action
+            android:id="@+id/action_nav_setting_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/nav_profile"
@@ -46,4 +49,9 @@
         android:name="com.zarisa.hw10_q3.EditCreditFragment"
         android:label="fragment_edit_credit"
         tools:layout="@layout/fragment_edit_credit" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.zarisa.hw10_q3.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>
