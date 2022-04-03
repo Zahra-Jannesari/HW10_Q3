@@ -82,4 +82,9 @@ class ViewModelHomeItems:ViewModel(){
     fun getItemDescribe(context: Context,itemNumber: Int): String {
         return DataBank.getDescribe(context,itemNumber)
     }
+
+    fun getHint():String{
+        DataBank.hintList.shuffle()
+        return DataBank.hintList[0]
+    }
 }

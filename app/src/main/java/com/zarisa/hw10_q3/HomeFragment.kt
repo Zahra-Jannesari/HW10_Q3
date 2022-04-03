@@ -1,19 +1,25 @@
 package com.zarisa.hw10_q3
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.zarisa.hw10_q3.databinding.FragmentHomeBinding
 
+
 const val numberOfItem = "numberOfItem"
-var numberOfVisible=4
+var numberOfVisible = 4
+
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     private val viewModel: ViewModelHomeItems by viewModels()
-    private val viewModelProfile:ViewModelProfile by viewModels()
+    private val viewModelProfile: ViewModelProfile by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -37,12 +43,13 @@ class HomeFragment : Fragment() {
         setInfo()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setInfo() {
         binding.textViewGreeting.text = "سلام ${viewModelProfile.getUserName()}"
         if (viewModelProfile.getUserName().isBlank() && viewModelProfile.getUserId()
                 .isBlank() && viewModelProfile.getUserPhone()
                 .isBlank() && viewModelProfile.getUserAddress().isBlank()
-        ) binding.textViewInfo.text="شما هنوز مشخصات خود را ثبت نکرده اید."
+        ) binding.textViewInfo.text = "شما هنوز مشخصات خود را ثبت نکرده اید."
         else {
             if (viewModelProfile.visibilityInfoInHome()) {
                 binding.textViewInfo.text =
@@ -61,7 +68,7 @@ class HomeFragment : Fragment() {
             var itemView = view?.findViewById<View>(viewId)
             itemView?.visibility = View.VISIBLE
         }
-        for (i in numberOfVisible+1..6) {
+        for (i in numberOfVisible + 1..6) {
             val viewId =
                 requireContext().resources.getIdentifier("item$i", "id", context?.packageName)
             var itemView = view?.findViewById<View>(viewId)
@@ -76,6 +83,20 @@ class HomeFragment : Fragment() {
         binding.item4.imageView.setOnClickListener { goToDetailPage(4) }
         binding.item5.imageView.setOnClickListener { goToDetailPage(5) }
         binding.item6.imageView.setOnClickListener { goToDetailPage(6) }
+        val snackBarColor =
+            if (appTheme == R.style.Theme_HW10_Q3) R.color.teal_700 else R.color.orange_yellow
+        binding.fabDailyHint.setOnClickListener { view ->
+            Snackbar.make(view, "${viewModel.getHint()}", Snackbar.LENGTH_LONG).setAction("Action", null)
+                .setBackgroundTint(resources.getColor(snackBarColor)).show()
+//            ViewCompat.setLayoutDirection(Snackbar.getView(),ViewCompat.LAYOUT_DIRECTION_RTL);
+//            Snackbar.show();
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+//                val snack: View = Snackbar.View()
+//                snack.layoutDirection = View.LAYOUT_DIRECTION_RTL
+//            }
+//
+//            Snackbar.show()
+        }
     }
 
     private fun goToDetailPage(itemNumber: Int) {
