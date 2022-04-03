@@ -9,7 +9,7 @@
         android:id="@+id/nav_home"
         android:name="com.zarisa.hw10_q3.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_to_itemDetailFragment"
             app:destination="@id/itemDetailFragment" />
@@ -19,9 +19,9 @@
     </fragment>
     <fragment
         android:id="@+id/nav_setting"
-        android:name="com.zarisa.hw10_q3.SettingFragment"
+        android:name="com.zarisa.hw10_q3.setting_part.SettingFragment"
         android:label="Setting"
-        tools:layout="@layout/fragment_setting" >
+        tools:layout="@layout/fragment_setting">
         <action
             android:id="@+id/action_nav_setting_to_editCreditFragment"
             app:destination="@id/editCreditFragment" />
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.zarisa.hw10_q3.ProfileFragment"
+        android:name="com.zarisa.hw10_q3.user_data.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
@@ -46,12 +46,12 @@
         tools:layout="@layout/fragment_credit" />
     <fragment
         android:id="@+id/editCreditFragment"
-        android:name="com.zarisa.hw10_q3.EditCreditFragment"
+        android:name="com.zarisa.hw10_q3.setting_part.EditCreditFragment"
         android:label="fragment_edit_credit"
         tools:layout="@layout/fragment_edit_credit" />
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.zarisa.hw10_q3.EditProfileFragment"
+        android:name="com.zarisa.hw10_q3.setting_part.EditProfileFragment"
         android:label="fragment_edit_profile"
         tools:layout="@layout/fragment_edit_profile" />
 </navigation>

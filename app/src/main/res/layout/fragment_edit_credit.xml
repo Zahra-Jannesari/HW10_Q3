@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".EditCreditFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".setting_part.EditCreditFragment">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/purple_200"
-                app:cardCornerRadius="20dp"
-                >
+                app:cardCornerRadius="20dp">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -40,18 +43,20 @@
                         android:id="@+id/rgBanks"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
                         android:layout_marginVertical="8dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/textView_bankType">
+
                         <RadioButton
                             android:id="@+id/rbtn_none"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="هیچکدام" />
+
                         <RadioButton
                             android:id="@+id/rbtn_meli"
                             android:layout_width="wrap_content"
@@ -74,6 +79,7 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,6 +112,7 @@
                         app:layout_constraintEnd_toEndOf="@+id/textView_changeCredit"
                         app:layout_constraintStart_toStartOf="@+id/textView_changeCredit"
                         app:layout_constraintTop_toBottomOf="@+id/textView_changeCredit">
+
                         <com.google.android.material.textfield.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
@@ -117,8 +124,8 @@
                                 android:layout_marginVertical="8dp"
                                 android:background="@color/purple_200"
                                 android:hint="شماره حساب"
-                                android:maxLines="1"
                                 android:inputType="number"
+                                android:maxLines="1"
                                 android:minHeight="48dp"
                                 android:paddingHorizontal="8dp"
                                 tools:ignore="SpeakableTextPresentCheck" />
@@ -135,8 +142,8 @@
                                 android:layout_marginVertical="8dp"
                                 android:background="@color/purple_200"
                                 android:hint="شماره کارت"
-                                android:maxLines="1"
                                 android:inputType="number"
+                                android:maxLines="1"
                                 android:minHeight="48dp"
                                 android:paddingHorizontal="8dp"
                                 tools:ignore="SpeakableTextPresentCheck" />
@@ -154,8 +161,8 @@
                                 android:layout_marginVertical="8dp"
                                 android:background="@color/purple_200"
                                 android:hint="شماره شبا"
-                                android:maxLines="1"
                                 android:inputType="number"
+                                android:maxLines="1"
                                 android:minHeight="48dp"
                                 android:paddingHorizontal="8dp"
                                 tools:ignore="SpeakableTextPresentCheck" />
@@ -164,12 +171,13 @@
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveChangeButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="16dp"
                 android:text="ذخیره تغییرات"
-                android:id="@+id/saveChangeButton"
                 app:cornerRadius="50dp" />
         </LinearLayout>
 

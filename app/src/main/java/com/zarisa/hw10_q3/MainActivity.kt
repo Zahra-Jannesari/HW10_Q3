@@ -15,8 +15,9 @@ import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 import com.zarisa.hw10_q3.databinding.ActivityMainBinding
 
-var appTheme=R.style.Theme_HW10_Q3
-var appLight=true
+var appTheme = R.style.Theme_HW10_Q3
+var appLight = true
+
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var appBarConfiguration: AppBarConfiguration
@@ -25,17 +26,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(appTheme)
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val navController =navHostFragment.navController
+        val navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_profile, R.id.nav_setting,R.id.nav_exit
+                R.id.nav_home, R.id.nav_profile, R.id.nav_setting, R.id.nav_exit
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -51,15 +52,18 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.feature_menu, menu)
         return true
     }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.fragmentContainerView)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -73,10 +77,10 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.Q)
     private fun changeTheme() {
-        appLight=!appLight
-        appTheme = when(appLight){
-            true-> R.style.Theme_HW10_Q3
-            false-> R.style.new_theme
+        appLight = !appLight
+        appTheme = when (appLight) {
+            true -> R.style.Theme_HW10_Q3
+            false -> R.style.new_theme
         }
         recreate()
     }

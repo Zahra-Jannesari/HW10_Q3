@@ -60,6 +60,7 @@ object DataBank {
         "در سفر دسته جمعی سلیقه های همه را در نظر بگیرید.",
         "برای بهتر سفر کردن آمادگی جسمانی خود را حفظ کنید."
     )
+
     fun getDescribe(context: Context, index: Int): String {
         return context.resources.getString(itemDescribe[index - 1])
     }

@@ -1,9 +1,7 @@
 package com.zarisa.hw10_q3
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -86,7 +84,8 @@ class HomeFragment : Fragment() {
         val snackBarColor =
             if (appTheme == R.style.Theme_HW10_Q3) R.color.teal_700 else R.color.orange_yellow
         binding.fabDailyHint.setOnClickListener { view ->
-            Snackbar.make(view, "${viewModel.getHint()}", Snackbar.LENGTH_LONG).setAction("Action", null)
+            Snackbar.make(view, "${viewModel.getHint()}", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
                 .setBackgroundTint(resources.getColor(snackBarColor)).show()
 //            ViewCompat.setLayoutDirection(Snackbar.getView(),ViewCompat.LAYOUT_DIRECTION_RTL);
 //            Snackbar.show();
