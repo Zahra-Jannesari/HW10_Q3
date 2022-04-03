@@ -3,6 +3,8 @@ package com.zarisa.hw10_q3.setting_part
 
 import android.os.Bundle
 import android.view.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.zarisa.hw10_q3.R
@@ -22,14 +24,14 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        ArrayAdapter.createFromResource(
-//            requireContext(),
-//            R.array.index_array,
-//            android.R.layout.simple_spinner_item
-//        ).also { adapter ->
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-//            binding.spinnerItem.adapter = adapter
-//        }
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.index_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.spinnerItems.adapter = adapter
+        }
         onClicks()
     }
 
@@ -51,26 +53,33 @@ class SettingFragment : Fragment() {
     }
 
     private fun saveChanges() {
-        if (binding.radio1.isChecked)
-            numberOfVisible = 1
-        if (binding.radio2.isChecked)
-            numberOfVisible = 2
-        if (binding.radio3.isChecked)
-            numberOfVisible = 3
-        if (binding.radio4.isChecked)
-            numberOfVisible = 4
-        if (binding.radio5.isChecked)
-            numberOfVisible = 5
-        if (binding.radio6.isChecked)
-            numberOfVisible = 6
-//        binding.spinnerItem.onItemSelectedListener= object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-//                viewModelItem.numberOfItems=p2+1
-//            }
-//            override fun onNothingSelected(p0: AdapterView<*>?) {
-//                viewModelItem.numberOfItems=4
-//            }
-//        }
+//        if (binding.radio1.isChecked)
+//            numberOfVisible = 1
+//        if (binding.radio2.isChecked)
+//            numberOfVisible = 2
+//        if (binding.radio3.isChecked)
+//            numberOfVisible = 3
+//        if (binding.radio4.isChecked)
+//            numberOfVisible = 4
+//        if (binding.radio5.isChecked)
+//            numberOfVisible = 5
+//        if (binding.radio6.isChecked)
+//            numberOfVisible = 6
+        binding.spinnerItems.onItemSelectedListener= object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                numberOfVisible=when(p0?.getItemAtPosition(p2).toString()){
+                    "1"->1
+                    "2"->2
+                    "3"->3
+                    "5"->5
+                    "6"->6
+                    else->4
+                }
+            }
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                numberOfVisible=4
+            }
+        }
 //        HomeFragment.newInstance()
 //        findNavController().navigate(R.id.action_nav_setting_to_nav_home)
     }

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/FIX4U.IR/Downloads/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.15775972637879435" />
         <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.2" />
         <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.2" />
         <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/layout-v26/fragment_item_detail.xml" value="0.1921875" />
@@ -20,6 +21,8 @@
         <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/menu/drawer_menu.xml" value="0.33" />
         <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/menu/feature_menu.xml" value="0.15775972637879435" />
         <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/menu/share_menu.xml" value="0.15775972637879435" />
+        <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2" />
+        <entry key="..\:/Users/FIX4U.IR/HW10_Q3/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2" />
       </map>
     </option>
   </component>
