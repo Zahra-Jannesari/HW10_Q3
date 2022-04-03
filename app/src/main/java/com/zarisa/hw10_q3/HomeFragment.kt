@@ -38,28 +38,37 @@ class HomeFragment : Fragment() {
     }
 
     private fun setInfo() {
-        binding.textViewGreeting.text="سلام ${viewModelProfile.getUserName()}"
-        if (viewModelProfile.visibilityInfoInHome()) {
-            binding.textViewInfo.text =
-                "مشخصات ذخیره شده شما در اپلیکیشن گردشگری:\nکدملی:${viewModelProfile.getUserId()}\n" +
-                        "تلفن:${viewModelProfile.getUserPhone()}\n" +
-                        "آدرس:${viewModelProfile.getUserAddress()}"
-        } else
-            binding.textViewInfo.text="مشخصات شما در صفحه پروفایل قابل مشاهده است."
+        binding.textViewGreeting.text = "سلام ${viewModelProfile.getUserName()}"
+        if (viewModelProfile.getUserName().isBlank() && viewModelProfile.getUserId()
+                .isBlank() && viewModelProfile.getUserPhone()
+                .isBlank() && viewModelProfile.getUserAddress().isBlank()
+        ) binding.textViewInfo.text="شما هنوز مشخصات خود را ثبت نکرده اید."
+        else {
+            if (viewModelProfile.visibilityInfoInHome()) {
+                binding.textViewInfo.text =
+                    "مشخصات ذخیره شده شما در اپلیکیشن گردشگری:\nکدملی:${viewModelProfile.getUserId()}\n" +
+                            "تلفن:${viewModelProfile.getUserPhone()}\n" +
+                            "آدرس:${viewModelProfile.getUserAddress()}"
+            } else
+                binding.textViewInfo.text = "مشخصات شما در صفحه پروفایل قابل مشاهده است."
+        }
     }
 
     private fun setVisibilityForItems() {
-        for(i in 1..6){
-            val viewId = requireContext().resources.getIdentifier("item$i", "id", context?.packageName)
-            var itemView=view?.findViewById<View>(viewId)
-            itemView?.visibility=View.VISIBLE
+        for (i in 1..6) {
+            val viewId =
+                requireContext().resources.getIdentifier("item$i", "id", context?.packageName)
+            var itemView = view?.findViewById<View>(viewId)
+            itemView?.visibility = View.VISIBLE
         }
-        for(i in numberOfVisible+1..6){
-            val viewId = requireContext().resources.getIdentifier("item$i", "id", context?.packageName)
-            var itemView=view?.findViewById<View>(viewId)
-            itemView?.visibility=View.GONE
+        for (i in numberOfVisible+1..6) {
+            val viewId =
+                requireContext().resources.getIdentifier("item$i", "id", context?.packageName)
+            var itemView = view?.findViewById<View>(viewId)
+            itemView?.visibility = View.GONE
         }
     }
+
     private fun onClicks() {
         binding.item1.imageView.setOnClickListener { goToDetailPage(1) }
         binding.item2.imageView.setOnClickListener { goToDetailPage(2) }
@@ -73,11 +82,19 @@ class HomeFragment : Fragment() {
         val bundle = bundleOf(numberOfItem to itemNumber)
         findNavController().navigate(R.id.action_nav_home_to_itemDetailFragment, bundle)
     }
+
     private fun setItems() {
-        var itemArray= arrayListOf(binding.item1,binding.item2,binding.item3,binding.item4,binding.item5,binding.item6)
-        for (i in 1..itemArray.size){
-            itemArray[i-1].textView.text = viewModel.getItemName(i)
-            viewModel.getItemImage(requireContext(), itemArray[i-1].imageView, i)
+        var itemArray = arrayListOf(
+            binding.item1,
+            binding.item2,
+            binding.item3,
+            binding.item4,
+            binding.item5,
+            binding.item6
+        )
+        for (i in 1..itemArray.size) {
+            itemArray[i - 1].textView.text = viewModel.getItemName(i)
+            viewModel.getItemImage(requireContext(), itemArray[i - 1].imageView, i)
         }
 //        binding.item1.textView.text = viewModel.getItemName(1)
 //        viewModel.getItemImage(requireContext(), binding.item1.imageView, 1)
@@ -92,15 +109,17 @@ class HomeFragment : Fragment() {
 //        binding.item6.textView.text = viewModel.getItemName(6)
 //        viewModel.getItemImage(requireContext(), binding.item6.imageView, 6)
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.feature_menu,menu)
+        inflater.inflate(R.menu.feature_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
         val accessCreditPage = menu.findItem(R.id.accessCreditPage)
         accessCreditPage.isVisible = true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.accessCreditPage-> findNavController().navigate(R.id.action_nav_home_to_creditFragment)
+        when (item.itemId) {
+            R.id.accessCreditPage -> findNavController().navigate(R.id.action_nav_home_to_creditFragment)
         }
         return super.onOptionsItemSelected(item)
     }
