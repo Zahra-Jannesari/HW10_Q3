@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="pink_theme" parent="Theme.MaterialComponents.Bridge">
+        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimaryVariant">@color/dark_pink</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/light_purple</item>
+        <item name="colorSecondaryVariant">@color/purple</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+    </style>
+</resources>
