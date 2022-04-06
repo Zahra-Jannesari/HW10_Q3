@@ -7,10 +7,6 @@ import android.content.res.Resources
 object DataBank {
     var showProfileInfoInHome: Boolean = false
     var profilePhotoUrl = R.drawable.profile_photo
-    var userName: String = ""
-    var userNationalID: String = ""
-    var userPhone: String = ""
-    var userAddress: String = ""
     var itemImages = arrayListOf(
         R.drawable.ali_ghapo,
         R.drawable.lotf_allah,

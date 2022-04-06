@@ -1,6 +1,8 @@
 package com.zarisa.hw10_q3
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import androidx.core.os.bundleOf
@@ -9,12 +11,15 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.zarisa.hw10_q3.databinding.FragmentHomeBinding
+import com.zarisa.hw10_q3.setting_part.showProfileInfoInHome
+import com.zarisa.hw10_q3.user_data.*
 
 
 const val numberOfItem = "numberOfItem"
 var numberOfVisible = 4
 
 class HomeFragment : Fragment() {
+    private lateinit var profileCreditSharePref: SharedPreferences
     lateinit var binding: FragmentHomeBinding
     private val viewModel: ViewModelHomeItems by viewModels()
     private val viewModelProfile: ViewModelProfile by viewModels()
@@ -35,6 +40,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        profileCreditSharePref =
+            requireActivity().getSharedPreferences("user Information", Context.MODE_PRIVATE)
         setItems()
         setVisibilityForItems()
         onClicks()
@@ -43,17 +50,21 @@ class HomeFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setInfo() {
-        binding.textViewGreeting.text = "سلام ${viewModelProfile.getUserName()}"
-        if (viewModelProfile.getUserName().isBlank() && viewModelProfile.getUserId()
-                .isBlank() && viewModelProfile.getUserPhone()
-                .isBlank() && viewModelProfile.getUserAddress().isBlank()
+        binding.textViewGreeting.text = "سلام ${profileCreditSharePref.getString(name, "")}"
+        if (profileCreditSharePref.getString(name, "")=="" && profileCreditSharePref.getString(
+                nationalId, "")=="" && profileCreditSharePref.getString(phone, "")=="" && profileCreditSharePref.getString(
+                address, "")==""&&profileCreditSharePref.getString(email, "")==""
         ) binding.textViewInfo.text = "شما هنوز مشخصات خود را ثبت نکرده اید."
         else {
-            if (viewModelProfile.visibilityInfoInHome()) {
+            if (profileCreditSharePref.getBoolean(showProfileInfoInHome, false)) {
                 binding.textViewInfo.text =
-                    "مشخصات ذخیره شده شما در اپلیکیشن گردشگری:\nکدملی:${viewModelProfile.getUserId()}\n" +
-                            "تلفن:${viewModelProfile.getUserPhone()}\n" +
-                            "آدرس:${viewModelProfile.getUserAddress()}"
+                    "مشخصات ذخیره شده شما در اپلیکیشن گردشگری:\nکدملی:${profileCreditSharePref.getString(
+                        nationalId, "")}\n" +
+                            "تلفن:${profileCreditSharePref.getString(phone, "")}\n" +
+                            "آدرس:${profileCreditSharePref.getString(
+                                address, "")}\n"+
+                            "ایمیل:${profileCreditSharePref.getString(email, "")}"
+
             } else
                 binding.textViewInfo.text = "مشخصات شما در صفحه پروفایل قابل مشاهده است."
         }

@@ -17,7 +17,7 @@ import com.zarisa.hw10_q3.user_data.sheba
 
 class EditCreditFragment : Fragment() {
     private lateinit var binding: FragmentEditCreditBinding
-    private var creditSharePref: SharedPreferences? = null
+    private var profileCreditSharePref: SharedPreferences? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,17 +29,17 @@ class EditCreditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "تغییر اطلاعات بانکی"
-        creditSharePref =
-            this.activity?.getSharedPreferences("Credit Information", Context.MODE_PRIVATE)
+        profileCreditSharePref =
+            this.activity?.getSharedPreferences("user Information", Context.MODE_PRIVATE)
         putDataInEditTexts()
         binding.saveChangeButton.setOnClickListener { saveBtnClick() }
     }
 
     private fun putDataInEditTexts() {
-        binding.account.setText(creditSharePref?.getString(account, ""))
-        binding.card.setText(creditSharePref?.getString(card, ""))
-        binding.sheba.setText(creditSharePref?.getString(sheba, ""))
-        var bankName = creditSharePref?.getString(bank, "")
+        binding.account.setText(profileCreditSharePref?.getString(account, ""))
+        binding.card.setText(profileCreditSharePref?.getString(card, ""))
+        binding.sheba.setText(profileCreditSharePref?.getString(sheba, ""))
+        var bankName = profileCreditSharePref?.getString(bank, "")
         when (bankName) {
             "meli" -> binding.rbtnMeli.isChecked = true
             "sepah" -> binding.rbtnSepah.isChecked = true
@@ -49,7 +49,7 @@ class EditCreditFragment : Fragment() {
     }
 
     private fun saveBtnClick() {
-        val editor = creditSharePref?.edit()
+        val editor = profileCreditSharePref?.edit()
         var bankName = when (binding.rgBanks.checkedRadioButtonId) {
             R.id.rbtn_meli -> "meli"
             R.id.rbtn_sepah -> "sepah"
