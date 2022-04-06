@@ -36,15 +36,36 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         profileCreditSharePref =
             requireActivity().getSharedPreferences("user Information", Context.MODE_PRIVATE)
-        setData()
+        if (profileCreditSharePref.getString(name, "")!="" || profileCreditSharePref.getString(
+                nationalId, "")!="" || profileCreditSharePref.getString(phone, "")!="" || profileCreditSharePref.getString(
+                address, "")!=""||profileCreditSharePref.getString(email, "")!=""){
+            binding.textViewNotRegisterYet.visibility=View.GONE
+            binding.scrollViewProfile.visibility=View.VISIBLE
+            setData()
+        }
     }
 
     private fun setData() {
-        binding.textViewUserName.text = profileCreditSharePref.getString(name, "")
-        binding.textViewUserId.text = profileCreditSharePref.getString(nationalId, "")
-        binding.textViewUserPhone.text = profileCreditSharePref.getString(address, "")
-        binding.textViewUserAddress.text = profileCreditSharePref.getString(phone, "")
-        binding.textViewUserEmail.text= profileCreditSharePref.getString(email, "")
         viewModel.getPhoto(requireContext(), binding.imageView)
+        binding.textViewUserName.let { it.text=profileCreditSharePref.getString(name, "")
+        if (it.text.isBlank())
+            binding.cardViewName.visibility=View.GONE
+        }
+        binding.textViewUserId.let { it.text=profileCreditSharePref.getString(nationalId, "")
+            if (it.text.isBlank())
+                binding.cardViewId.visibility=View.GONE
+        }
+        binding.textViewUserPhone.let { it.text=profileCreditSharePref.getString(phone, "")
+            if (it.text.isBlank())
+                binding.cardViewPhone.visibility=View.GONE
+        }
+        binding.textViewUserAddress.let { it.text=profileCreditSharePref.getString(address, "")
+            if (it.text.isBlank())
+                binding.cardViewAddress.visibility=View.GONE
+        }
+        binding.textViewUserEmail.let { it.text=profileCreditSharePref.getString(email, "")
+            if (it.text.isBlank())
+                binding.cardViewEmail.visibility=View.GONE
+        }
     }
 }
