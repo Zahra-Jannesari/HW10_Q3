@@ -20,7 +20,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/purple_200"
+                android:backgroundTint="?attr/colorSecondary"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="@color/purple_200"
+                android:backgroundTint="?attr/colorSecondary"
                 app:cardCornerRadius="20dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -122,7 +122,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="8dp"
-                                android:background="@color/purple_200"
+                                android:background="#80FFFFFF"
+                                android:alpha="0"
                                 android:hint="شماره حساب"
                                 android:inputType="number"
                                 android:maxLines="1"
@@ -140,7 +141,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="8dp"
-                                android:background="@color/purple_200"
+                                android:background="#80FFFFFF"
+                                android:alpha="0"
                                 android:hint="شماره کارت"
                                 android:inputType="number"
                                 android:maxLines="1"
@@ -159,7 +161,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginVertical="8dp"
-                                android:background="@color/purple_200"
+                                android:background="#80FFFFFF"
+                                android:alpha="0"
                                 android:hint="شماره شبا"
                                 android:inputType="number"
                                 android:maxLines="1"
