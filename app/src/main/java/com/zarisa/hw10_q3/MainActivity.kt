@@ -16,7 +16,7 @@ import com.google.android.material.navigation.NavigationView
 import com.zarisa.hw10_q3.databinding.ActivityMainBinding
 
 var appTheme = R.style.Theme_HW10_Q3
-var appLight = true
+//var appLight = true
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -53,35 +53,35 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.feature_menu, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        val inflater: MenuInflater = menuInflater
+//        inflater.inflate(R.menu.feature_menu, menu)
+//        return true
+//    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.fragmentContainerView)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.changeTheme -> {
-                changeTheme()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
+//    @RequiresApi(Build.VERSION_CODES.Q)
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        return when (item.itemId) {
+//            R.id.changeTheme -> {
+//                changeTheme()
+//                true
+//            }
+//            else -> super.onOptionsItemSelected(item)
+//        }
+//    }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
-    private fun changeTheme() {
-        appLight = !appLight
-        appTheme = when (appLight) {
-            true -> R.style.Theme_HW10_Q3
-            false -> R.style.new_theme
-        }
-        recreate()
-    }
+//    @RequiresApi(Build.VERSION_CODES.Q)
+//    private fun changeTheme() {
+//        appLight = !appLight
+//        appTheme = when (appLight) {
+//            true -> R.style.Theme_HW10_Q3
+//            false -> R.style.new_theme
+//        }
+//        recreate()
+//    }
 }

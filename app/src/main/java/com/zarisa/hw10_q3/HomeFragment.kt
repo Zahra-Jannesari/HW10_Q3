@@ -82,7 +82,7 @@ class HomeFragment : Fragment() {
         binding.item5.imageView.setOnClickListener { goToDetailPage(5) }
         binding.item6.imageView.setOnClickListener { goToDetailPage(6) }
         val snackBarColor =
-            if (appTheme == R.style.Theme_HW10_Q3) R.color.teal_700 else R.color.orange_yellow
+            if (appTheme == R.style.Theme_HW10_Q3) R.color.teal_700 else if(appTheme == R.style.pink_theme) R.color.purple else R.color.orange_yellow
         binding.fabDailyHint.setOnClickListener { view ->
             Snackbar.make(view, "${viewModel.getHint()}", Snackbar.LENGTH_LONG)
                 .setAction("Action", null)
