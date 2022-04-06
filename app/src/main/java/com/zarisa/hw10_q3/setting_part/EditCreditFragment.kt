@@ -36,9 +36,9 @@ class EditCreditFragment : Fragment() {
     }
 
     private fun putDataInEditTexts() {
-        binding.account.setText(profileCreditSharePref.getString(account, ""))
-        binding.card.setText(profileCreditSharePref.getString(card, ""))
-        binding.sheba.setText(profileCreditSharePref.getString(sheba, ""))
+//        binding.account.setText(profileCreditSharePref.getString(account, ""))
+//        binding.card.setText(profileCreditSharePref.getString(card, ""))
+//        binding.sheba.setText(profileCreditSharePref.getString(sheba, ""))
         var bankName = profileCreditSharePref.getString(bank, "")
         when (bankName) {
             "meli" -> binding.rbtnMeli.isChecked = true
@@ -49,7 +49,7 @@ class EditCreditFragment : Fragment() {
     }
 
     private fun saveBtnClick() {
-        val editor = profileCreditSharePref?.edit()
+        val editor = profileCreditSharePref.edit()
         var bankName = when (binding.rgBanks.checkedRadioButtonId) {
             R.id.rbtn_meli -> "meli"
             R.id.rbtn_sepah -> "sepah"
@@ -58,9 +58,9 @@ class EditCreditFragment : Fragment() {
         }
         editor?.putString(bank, bankName)
 
-        editor?.putString(account, binding.account.text.toString())
-        editor?.putString(card, binding.card.text.toString())
-        editor?.putString(sheba, binding.sheba.text.toString())
-        editor?.apply()
+        editor.putString(account, binding.account.text.toString())
+        editor.putString(card, binding.card.text.toString())
+        editor.putString(sheba, binding.sheba.text.toString())
+        editor.apply()
     }
 }
