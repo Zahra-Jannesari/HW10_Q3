@@ -8,9 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!--for second theme-->
-    <color name="blue_green">#00695C</color>
-    <color name="dark_blue_green">#004D40</color>
-    <color name="yellow">#9E9D24</color>
-    <color name="orange_yellow">#FF6F00</color>
+    <!--for pink theme-->
+    <color name="pink">#EF5893</color>
+    <color name="dark_pink">#C2185B</color>
+    <color name="light_purple">#B828D1</color>
+    <color name="purple">#5D0C6A</color>
+    <!--for green theme-->
+    <color name="green">#93F63C</color>
+    <color name="dark_green">#448E03</color>
+    <color name="yellow">#FBC02D</color>
+    <color name="orange_yellow">#F57C00</color>
 </resources>
