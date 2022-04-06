@@ -2,11 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/editCredit"
-        android:icon="@drawable/ic_baseline_monetization_on_24"
-        android:title="تغییر اطلاعات بانکی" />
-    <item
         android:id="@+id/editProfile"
         android:icon="@drawable/ic_baseline_person_24"
         android:title="تغییر اطلاعات شخصی" />
+    <item
+        android:id="@+id/editCredit"
+        android:icon="@drawable/ic_baseline_monetization_on_24"
+        android:title="تغییر اطلاعات بانکی" />
+
 </menu>
