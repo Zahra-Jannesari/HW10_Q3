@@ -17,7 +17,7 @@ import com.zarisa.hw10_q3.user_data.sheba
 
 class EditCreditFragment : Fragment() {
     private lateinit var binding: FragmentEditCreditBinding
-    private var profileCreditSharePref: SharedPreferences? = null
+    private lateinit var profileCreditSharePref: SharedPreferences
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,16 +30,16 @@ class EditCreditFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "تغییر اطلاعات بانکی"
         profileCreditSharePref =
-            this.activity?.getSharedPreferences("user Information", Context.MODE_PRIVATE)
+            requireActivity().getSharedPreferences("user Information", Context.MODE_PRIVATE)
         putDataInEditTexts()
         binding.saveChangeButton.setOnClickListener { saveBtnClick() }
     }
 
     private fun putDataInEditTexts() {
-        binding.account.setText(profileCreditSharePref?.getString(account, ""))
-        binding.card.setText(profileCreditSharePref?.getString(card, ""))
-        binding.sheba.setText(profileCreditSharePref?.getString(sheba, ""))
-        var bankName = profileCreditSharePref?.getString(bank, "")
+        binding.account.setText(profileCreditSharePref.getString(account, ""))
+        binding.card.setText(profileCreditSharePref.getString(card, ""))
+        binding.sheba.setText(profileCreditSharePref.getString(sheba, ""))
+        var bankName = profileCreditSharePref.getString(bank, "")
         when (bankName) {
             "meli" -> binding.rbtnMeli.isChecked = true
             "sepah" -> binding.rbtnSepah.isChecked = true

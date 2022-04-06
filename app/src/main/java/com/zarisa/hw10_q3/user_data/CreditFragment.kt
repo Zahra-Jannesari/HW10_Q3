@@ -18,7 +18,7 @@ const val bank = "bankName"
 
 class CreditFragment : Fragment() {
     private lateinit var binding: FragmentCreditBinding
-    private var creditSharePref: SharedPreferences? = null
+    private lateinit var profileCreditSharePref: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,17 +31,30 @@ class CreditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "اطلاعات بانکی"
-        creditSharePref =
-            this.activity?.getSharedPreferences("Credit Information", Context.MODE_PRIVATE)
-        showInfoInView()
+        profileCreditSharePref =
+            requireActivity().getSharedPreferences("Credit Information", Context.MODE_PRIVATE)
+        if (profileCreditSharePref.getString(account, "")!="" || profileCreditSharePref.getString(
+                card, "")!="" || profileCreditSharePref.getString(sheba, "")!="" ){
+            binding.textViewNotRegisterYet.visibility=View.GONE
+            binding.scrollViewCredit.visibility=View.VISIBLE
+            showInfoInView()
+        }
     }
 
     private fun showInfoInView() {
-        binding.textViewUserAccount.text = creditSharePref?.getString(account, "")
-        binding.textViewUserCard.text = creditSharePref?.getString(card, "")
-        binding.textViewUserSheba.text = creditSharePref?.getString(sheba, "")
-
-        var bankImage = when (creditSharePref?.getString(bank, "")) {
+        binding.textViewUserAccount.let { it.text = profileCreditSharePref.getString(account, "")
+            if (it.text.isBlank())
+                binding.cardViewAccount.visibility=View.GONE
+        }
+        binding.textViewUserCard.let { it.text = profileCreditSharePref.getString(card, "")
+            if (it.text.isBlank())
+                binding.cardViewCard.visibility=View.GONE
+        }
+        binding.textViewUserSheba.let { it.text = profileCreditSharePref.getString(sheba, "")
+            if (it.text.isBlank())
+                binding.cardViewSheba.visibility=View.GONE
+        }
+        var bankImage = when (profileCreditSharePref.getString(bank, "")) {
             "sepah" -> R.drawable.sepah
             "meli" -> R.drawable.meli
             "keshavarzi" -> R.drawable.keshavarzi

@@ -41,7 +41,7 @@
         tools:layout="@layout/fragment_item_detail" />
     <fragment
         android:id="@+id/creditFragment"
-        android:name="com.zarisa.hw10_q3.setting_part.EditCreditFragment"
+        android:name="com.zarisa.hw10_q3.user_data.CreditFragment"
         android:label="fragment_credit"
         tools:layout="@layout/fragment_credit" />
     <fragment

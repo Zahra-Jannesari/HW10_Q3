@@ -50,20 +50,21 @@ class HomeFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setInfo() {
-        binding.textViewGreeting.text = "سلام ${profileCreditSharePref.getString(name, "")}"
+        binding.textViewGreeting.text = "سلام"
         if (profileCreditSharePref.getString(name, "")=="" && profileCreditSharePref.getString(
                 nationalId, "")=="" && profileCreditSharePref.getString(phone, "")=="" && profileCreditSharePref.getString(
                 address, "")==""&&profileCreditSharePref.getString(email, "")==""
         ) binding.textViewInfo.text = "شما هنوز مشخصات خود را ثبت نکرده اید."
         else {
             if (profileCreditSharePref.getBoolean(showProfileInfoInHome, false)) {
+                binding.textViewGreeting.text = "سلام ${profileCreditSharePref.getString(name, "")}"
                 binding.textViewInfo.text =
                     "مشخصات ذخیره شده شما در اپلیکیشن گردشگری:\nکدملی:${profileCreditSharePref.getString(
-                        nationalId, "")}\n" +
-                            "تلفن:${profileCreditSharePref.getString(phone, "")}\n" +
+                        nationalId, "ثبت نشده")}\n" +
+                            "تلفن:${profileCreditSharePref.getString(phone, "ثبت نشده")}\n" +
                             "آدرس:${profileCreditSharePref.getString(
-                                address, "")}\n"+
-                            "ایمیل:${profileCreditSharePref.getString(email, "")}"
+                                address, "ثبت نشده")}\n"+
+                            "ایمیل:${profileCreditSharePref.getString(email, "ثبت نشده")}"
 
             } else
                 binding.textViewInfo.text = "مشخصات شما در صفحه پروفایل قابل مشاهده است."

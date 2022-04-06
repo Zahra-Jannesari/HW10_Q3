@@ -55,25 +55,29 @@
                             android:id="@+id/rbtn_none"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="هیچکدام" />
+                            android:text="هیچکدام"
+                            android:buttonTint="?attr/colorPrimary"/>
 
                         <RadioButton
                             android:id="@+id/rbtn_meli"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="بانک ملی" />
+                            android:text="بانک ملی"
+                            android:buttonTint="?attr/colorPrimary"/>
 
                         <RadioButton
                             android:id="@+id/rbtn_sepah"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="بانک سپه" />
+                            android:text="بانک سپه"
+                            android:buttonTint="?attr/colorPrimary"/>
 
                         <RadioButton
                             android:id="@+id/rbtn_keshavarzi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="بانک کشاورزی" />
+                            android:text="بانک کشاورزی"
+                            android:buttonTint="?attr/colorPrimary"/>
 
                     </RadioGroup>
 
